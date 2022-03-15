@@ -5,7 +5,7 @@
 
     <title>Rock Scissors Paper game</title>
 
-    <style>
+    <!-- <style>
       html {
         font-family: sans-serif;
       }
@@ -21,37 +21,86 @@
         color: white;
         padding: 3px;
       }
-    </style>
+    </style> -->
   </head>
 
   <body>
     <h1>Rock Scissors Paper game</h1>
 
-    <p>your turn (type rock/scissors/paper):</p>
+    <!-- <p>your turn (type rock/scissors/paper):</p>
 
     <div class="form">
      
-      <input type="text" id="guessField" class="guessField">
-      <input type="submit" value="Submit" class="guessSubmit">
+      <input type="text" id="gameField" class="gameField">
+      <input type="submit" value="submit" class="submit">
     </div>
 
     <div class="resultParas">
       <p class="turnResult"></p>
       <p class="genericResult"></p>
       <p class="finalMessage"></p>
-    </div>
+    </div> -->
 
     <script>
         function computerPlay() {
-          let randomChoice = Math.floor(Math.random() * 3) + 1;
+          let randomChoice = (Math.floor(Math.random() * 3) + 1);
           console.log(randomChoice);
-          if (randomChoice === 1) return ('rock');
-          else if (randomChoice === 2) return ('scissors');
-          else return ('paper');
+          if (randomChoice === 1) randomChoice = ('rock');
+          else if (randomChoice === 2) randomChoice = ('scissors');
+          else randomChoice = ('paper');
+          return (randomChoice);
         }
         
-        let compChoice = computerPlay();
-        console.log(compChoice);
+        let computerSelection = computerPlay();
+        console.log(computerSelection);
+        /*let turnResult = document.querySelector('.turnResult');
+        let genericResult = document.querySelector('.genericResult');
+        let finalMessage = document.querySelector('.finalMessage');
+
+        let submit = document.querySelector('.submit');
+        const gameField = document.querySelector('.gameField');*/
+
+        
+        
+        /*let playerSelection = submit.addEventListener('click', gameField.value);*/
+     
+      
+        function userPlay(){
+          let playerSelection = prompt('Enter your selection(Rock/Scissors/Paper)');
+          playerSelection = playerSelection.toLowerCase();
+          if ( playerSelection === 'rock' || playerSelection === 'scissors' || playerSelection === 'paper')  { 
+            return playerSelection;
+
+          } else { 
+            alert('Unknown data');
+            userPlay()}
+        }
+
+
+        function roundPlay(){
+          let computerSelection = computerPlay();
+          let playerSelection = userPlay();
+          console.log(computerSelection);
+          console.log(playerSelection);
+
+          if (playerSelection === computerSelection) {
+            alert('Draw Game!');
+            
+          }
+
+          else if (( playerSelection === 'rock' && computerSelection === 'scissors') || 
+                   ( playerSelection === 'scissors' && computerSelection === 'paper') ||
+                   ( playerSelection === 'paper' && computerSelection === 'rock')) { 
+            alert ('You win - ' + playerSelection + ' beats ' + computerSelection +'!');
+                    
+          }
+
+          else {
+            alert('You lose - ' + computerSelection + ' beats ' + playerSelection +'!');               
+          }roundPlay();
+         
+        }
+        roundPlay();
         
     </script>
  </body>
