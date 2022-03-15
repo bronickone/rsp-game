@@ -16,21 +16,20 @@
           else randomChoice = ('paper');
           return (randomChoice);
         }
-
-
-        let computerSelection = computerPlay();
-        console.log(computerSelection);
         
       
         function userPlay(){
+          let i = true;
+          do{
           let playerSelection = prompt('Enter your selection(Rock/Scissors/Paper)');
           playerSelection = playerSelection.toLowerCase();
-          if ( playerSelection === 'rock' || playerSelection === 'scissors' || playerSelection === 'paper')  { 
-            return playerSelection;
-
-          } else { 
+          if ( (playerSelection !== 'rock') && (playerSelection !== 'scissors') && (playerSelection !== 'paper') )  { 
             alert('Unknown data');
-            userPlay()}
+          }else {
+            i = false;
+            return playerSelection;
+            }
+          } while (i = true);
         }
         
 
@@ -39,8 +38,8 @@
 
 
         function roundPlay(){
-          let computerSelection = computerPlay();
           let playerSelection = userPlay();
+          let computerSelection = computerPlay();
           console.log(computerSelection);
           console.log(playerSelection);
 
