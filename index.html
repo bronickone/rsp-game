@@ -7,65 +7,83 @@
 
   <body>
     <h1>Rock Scissors Paper game</h1>
+    <div class="container">
+      <button class="rockButt" id="rock">ROCK</button>
+      <button class="scissorsButt" id="scissors">SCISSORS</button>
+      <button class="paperButt" id="paper">PAPER</button>
+    </div>
+    <div class="roundInfo"></div>
+    <div class="roundResults"></div>
+    <div class="gameInfo"></div>
+    <div class="gameOver"></div>
+    
     <script>
+        const container = document.querySelector('.container');
+        const results = document.querySelector('.roundResults');
+        const roundInfo = document.querySelector('.roundInfo');
+        const gameInfo = document.querySelector('.gameInfo');
+        const gameOver = document.querySelector('.gameOver');
+        
+        
+
+        let playerScore = 0;
+        let computerScore = 0;
+
         function computerPlay() {
           let randomChoice = (Math.floor(Math.random() * 3) + 1);
-          console.log(randomChoice);
           if (randomChoice === 1) randomChoice = ('rock');
           else if (randomChoice === 2) randomChoice = ('scissors');
           else randomChoice = ('paper');
           return (randomChoice);
         }
         
-      
-        function userPlay(){
-          let i = true;
-          do{
-          let playerSelection = prompt('Enter your selection(Rock/Scissors/Paper)');
-          playerSelection = playerSelection.toLowerCase();
-          if ( (playerSelection !== 'rock') && (playerSelection !== 'scissors') && (playerSelection !== 'paper') )  { 
-            alert('Unknown data');
-          }else {
-            i = false;
-            return playerSelection;
-            }
-          } while (i = true);
-        }
-        
-
-        let playerScore = 0;
-        let computerScore = 0;
-
-
-        function roundPlay(){
-          let playerSelection = userPlay();
-          let computerSelection = computerPlay();
-          console.log(computerSelection);
-          console.log(playerSelection);
-
+        function roundPlay(playerSelection, computerSelection){
+          roundInfo.textContent = `Computer pick ${computerSelection}`;
           if (playerSelection === computerSelection) {
-            alert('Draw round!');
-            
-          }
+            results.textContent = 'Draw round!';
+       }
 
           else if (( playerSelection === 'rock' && computerSelection === 'scissors') || 
                    ( playerSelection === 'scissors' && computerSelection === 'paper') ||
                    ( playerSelection === 'paper' && computerSelection === 'rock')) {
             playerScore = ++playerScore;
-            alert ('You win this round - ' + playerSelection + ' beats ' + computerSelection +'!');          
+            results.textContent = 'You win this round - ' + playerSelection + ' beats ' + computerSelection +'!';          
           }
 
           else {
             computerScore = ++computerScore;
-            alert('You lose this round - ' + computerSelection + ' beats ' + playerSelection +'!');               
+            results.textContent = 'You lose this round - ' + computerSelection + ' beats ' + playerSelection +'!';               
           }     
         }
+        
+        const buttons = document.querySelectorAll('button');
+        
+        buttons.forEach((button) => {   
+          button.addEventListener('click', () => {
+          let compSel = computerPlay();
+          let playSel = button.id;
+          roundPlay(playSel, compSel);
+          game();
+          });
+        });
+      
+        
 
+        
+        function game() {
+          gameInfo.textContent = `Player score - ${playerScore} Computer score - ${computerScore}`;
+          if (playerScore === 5) 
+          {gameOver.textContent = 'PLAYER WIN!'; container.style.display = 'none';}
+          else if (computerScore === 5)
+          {gameOver.textContent = 'COMPUTER WIN!'; container.style.display = 'none';}
+        }
+        
+      
 
-        let results;
+       
+        
 
-
-        function game(){
+        /* function game(){
          
           for (let roundCount = 1; roundCount < 6; roundCount++) {
             roundPlay()
@@ -87,7 +105,9 @@
         }
 
 
-        game();
+        game();*/
+      
+      
     </script>
  </body>
 </html>
