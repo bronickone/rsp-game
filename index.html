@@ -19,13 +19,11 @@
     
     <script>
         const container = document.querySelector('.container');
-        const results = document.querySelector('.roundResults');
+        const roundResults = document.querySelector('.roundResults');
         const roundInfo = document.querySelector('.roundInfo');
         const gameInfo = document.querySelector('.gameInfo');
         const gameOver = document.querySelector('.gameOver');
-        
-        
-
+             
         let playerScore = 0;
         let computerScore = 0;
 
@@ -40,19 +38,19 @@
         function roundPlay(playerSelection, computerSelection){
           roundInfo.textContent = `Computer pick ${computerSelection}`;
           if (playerSelection === computerSelection) {
-            results.textContent = 'Draw round!';
-       }
+            roundResults.textContent = 'Draw round!';
+          }
 
           else if (( playerSelection === 'rock' && computerSelection === 'scissors') || 
                    ( playerSelection === 'scissors' && computerSelection === 'paper') ||
                    ( playerSelection === 'paper' && computerSelection === 'rock')) {
             playerScore = ++playerScore;
-            results.textContent = 'You win this round - ' + playerSelection + ' beats ' + computerSelection +'!';          
+            roundResults.textContent = 'You win this round - ' + playerSelection + ' beats ' + computerSelection +'!';          
           }
 
           else {
             computerScore = ++computerScore;
-            results.textContent = 'You lose this round - ' + computerSelection + ' beats ' + playerSelection +'!';               
+            roundResults.textContent = 'You lose this round - ' + computerSelection + ' beats ' + playerSelection +'!';               
           }     
         }
         
@@ -76,38 +74,7 @@
           {gameOver.textContent = 'PLAYER WIN!'; container.style.display = 'none';}
           else if (computerScore === 5)
           {gameOver.textContent = 'COMPUTER WIN!'; container.style.display = 'none';}
-        }
-        
-      
-
-       
-        
-
-        /* function game(){
-         
-          for (let roundCount = 1; roundCount < 6; roundCount++) {
-            roundPlay()
-            results = (' results: Player score - ' + playerScore + ' Computer score - ' + computerScore );
-            alert('Round ' + roundCount + results);
-          } 
-          
-          if (playerScore === computerScore) {
-            alert('Draw game!' + results);
-          }
-          
-          else if (playerScore > computerScore) {
-            alert('You win this game!' + results);
-          }
-          
-          else {
-            alert('You lose this game!' + results);
-          }
-        }
-
-
-        game();*/
-      
-      
+        }      
     </script>
  </body>
 </html>
