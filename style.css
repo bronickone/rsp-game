@@ -1,0 +1,91 @@
+body{
+    background-color:rgb(0, 0, 0);
+    margin: 0;
+    text-align: center;
+   
+}
+
+h1{
+    margin: 0;
+    padding: 2rem;
+    background-color: rgb(250, 243, 233);
+    font-family: 'Press Start 2P', sans-serif;
+   
+}
+ .container{
+     display: flex;
+     padding: 2rem;
+     justify-content: center;
+     gap: 2rem;
+ }
+ button{
+     width: 20rem;
+     height: 7rem;
+     font-family:Bangers, 'Times New Roman', sans-serif;
+     font-size: 3rem;
+     background-color: rgb(250, 243, 233);
+     border: size 30px;
+     
+    
+        
+ }
+.roundInfo, .gameInfo, .roundResults, .gameOver {
+    padding: 1rem;
+    font-family: 'Press Start 2P', sans-serif;
+    height:2rem;
+    color:#fff;
+}
+
+.roundInfo, .gameInfo {
+    font-size: 1rem;
+}
+    
+.gameInfo {
+    animation: pulsate 0.11s ease-in-out infinite alternate; 
+}
+
+.roundResults{
+    font-size: 1rem;
+}
+.gameOver{
+    font-size: 2rem;
+}
+.footer {
+    font-family: 'Rock Salt', sans-serif;
+    font-size:1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+   
+    background:rgb(250, 243, 233);
+  }
+
+  @keyframes pulsate {
+    100% {
+      /* Larger blur radius */
+      text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px #f09,
+        0 0 80px #f09,
+        0 0 90px #f09,
+        0 0 100px #f09,
+        0 0 150px #f09;
+    }
+   0% {
+      /* A slightly smaller blur radius */
+      text-shadow:
+        0 0 4px #fff,
+        0 0 10px #fff,
+        0 0 18px #fff,
+        0 0 38px #f09,
+        0 0 73px #f09,
+        0 0 80px #f09,
+        0 0 94px #f09,
+        0 0 140px #f09;
+    }
+  }
+
