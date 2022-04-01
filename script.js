@@ -3,6 +3,7 @@
         const roundInfo = document.querySelector('.roundInfo');
         const gameInfo = document.querySelector('.gameInfo');
         const gameOver = document.querySelector('.gameOver');
+        const symbolInfo = document.querySelector('.symbol');
              
         let playerScore = 0;
         let computerScore = 0;
@@ -17,7 +18,10 @@
         
         function roundPlay(playerSelection, computerSelection){
           roundInfo.textContent = `Computer pick ${computerSelection}`;
-          if (playerSelection === computerSelection) {
+          if (computerSelection === 'rock') symbolInfo.textContent = '✊'
+          if (computerSelection === 'paper') symbolInfo.textContent = '✋'
+          if (computerSelection === 'scissors') symbolInfo.textContent = '✌'
+                  if (playerSelection === computerSelection) {
             roundResults.textContent = 'Draw round!';
           }
 

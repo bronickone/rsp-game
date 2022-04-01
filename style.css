@@ -30,13 +30,22 @@ h1{
     
         
  }
-.roundInfo, .gameInfo, .roundResults, .gameOver {
+.roundInfo, .gameInfo, .roundResults, .gameOver{
     padding: 1rem;
     font-family: 'Press Start 2P', sans-serif;
     height:2rem;
     color:#fff;
+   
 }
-
+ .symbol, .roundInfo{
+    
+    display:inline-block;
+}
+.symbol{
+    text-align: center;
+   
+    font-size: 50px;
+}
 .roundInfo, .gameInfo {
     font-size: 1.5rem;
 }
