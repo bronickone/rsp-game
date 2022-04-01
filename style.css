@@ -26,25 +26,31 @@ h1{
      background-color: rgb(167, 120, 55);
      color:rgb(4, 4, 37);
      border: size 30px;
-     
+ }
+ .topInfo{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 5px;
+ }
     
         
- }
-.roundInfo, .gameInfo, .roundResults, .gameOver{
+ 
+.roundInfo, .gameInfo, .roundResults, .gameOver, .topInfo{
     padding: 1rem;
     font-family: 'Press Start 2P', sans-serif;
     height:2rem;
     color:#fff;
    
 }
- .symbol, .roundInfo{
-    
+ /* .symbol, .roundInfo{
+    padding: 10px;
     display:inline-block;
-}
+} */
 .symbol{
     text-align: center;
-   
-    font-size: 50px;
+    padding-bottom: 8px;
+    font-size: 60px;
 }
 .roundInfo, .gameInfo {
     font-size: 1.5rem;
