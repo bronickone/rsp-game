@@ -27,6 +27,22 @@ h1{
      color:rgb(4, 4, 37);
      border: size 30px;
  }
+
+ button:hover{
+    cursor: pointer;
+    animation-name: buthover;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;  
+ }
+
+ @keyframes buthover {
+    100% {
+        background-color:rgb(204, 148, 69);
+        color: whitesmoke;
+        /*font-size: 220%;*/
+        transform: scale(1.05);    
+        }
+}   
  .topInfo{
      display: flex;
      justify-content: center;
